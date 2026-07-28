@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HAND CRICKET PRO - Match Result</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        (function() {
+            const savedTheme = localStorage.getItem('appTheme');
+            // Default to dark mode if not specified
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#3ce36a",
+                        "on-tertiary-fixed": "#261a00",
+                        "primary": "#3fe56c",
+                        "on-primary-fixed": "#002108",
+                        "on-primary": "#003912",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "surface": "#0b1326",
+                        "surface-tint": "#3ce36a",
+                        "error-container": "#93000a",
+                        "surface-bright": "#31394d",
+                        "on-background": "#dae2fd",
+                        "primary-fixed": "#69ff87",
+                        "background": "#0b1326",
+                        "inverse-surface": "#dae2fd",
+                        "surface-variant": "#2d3449",
+                        "secondary-container": "#1e95f2",
+                        "on-tertiary": "#3f2e00",
+                        "secondary-fixed": "#d1e4ff",
+                        "secondary": "#9ecaff",
+                        "primary-container": "#00c853",
+                        "on-surface": "#dae2fd",
+                        "on-secondary-container": "#002b4d",
+                        "outline": "#869583",
+                        "outline-variant": "#3c4a3c",
+                        "on-secondary": "#003258",
+                        "on-surface-variant": "#bbcbb8",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "surface-container-high": "#222a3d",
+                        "tertiary-container": "#dba500",
+                        "tertiary": "#fdbf02",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "secondary-fixed-dim": "#9ecaff",
+                        "surface-container": "#171f33",
+                        "surface-dim": "#0b1326",
+                        "on-secondary-fixed": "#001d36",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-fixed-variant": "#00531e",
+                        "inverse-primary": "#006e2a",
+                        "surface-container-lowest": "#060e20",
+                        "on-primary-container": "#004c1b",
+                        "on-tertiary-container": "#543e00",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#131b2e",
+                        "tertiary-fixed": "#ffdf9e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "container-padding-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-xl": ["Montserrat"],
+                        "title-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(63, 229, 108, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 149, 242, 0.1) 0px, transparent 50%);
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .victory-glow {
+            box-shadow: 0 0 40px rgba(63, 229, 108, 0.2);
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            z-index: 10;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .animate-float {
+            animation: float 4s infinite linear;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-on-surface relative flex flex-col items-center">
+<!-- Atmospheric Particles -->
+<div class="fixed inset-0 pointer-events-none z-0" id="particle-container"></div>
+
+<!-- Navigation Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile h-16 bg-white/10 dark:bg-surface-variant/10 backdrop-blur-md border-b border-white/15 shadow-[0_0_15px_rgba(0,200,83,0.2)]">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tight">HAND CRICKET PRO</h1>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-primary-fixed-dim hover:scale-105 transition-transform duration-200 active:scale-95">settings</button>
+<button class="material-symbols-outlined text-primary-fixed-dim hover:scale-105 transition-transform duration-200 active:scale-95">account_circle</button>
+</div>
+</header>
+
+<main class="flex-1 w-full max-w-4xl px-container-padding-mobile pt-24 pb-32 flex flex-col items-center justify-center relative z-10">
+<!-- Dynamic Trophy/Result Icon -->
+<div class="mb-stack-lg relative group">
+<div id="resultGlow" class="absolute -inset-8 bg-primary/20 blur-3xl rounded-full animate-pulse transition-all"></div>
+<div id="resultPanel" class="glass-panel p-8 rounded-full victory-glow relative z-10 border-primary/30">
+<span id="resultIcon" class="material-symbols-outlined text-[96px] text-primary" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+</div>
+
+<!-- Dynamic Result Status -->
+<div class="text-center mb-stack-lg">
+<h2 id="resultTitle" class="font-display-lg text-display-lg text-primary uppercase tracking-widest mb-2">Victory!</h2>
+<p id="resultSubtitle" class="font-body-lg text-body-lg text-on-surface-variant/80">You dominated the field today!</p>
+</div>
+
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-2 gap-gutter w-full mb-stack-lg">
+<!-- Score Card -->
+<div class="glass-panel p-stack-md rounded-xl col-span-2 md:col-span-1 flex flex-col items-center justify-center hover:scale-[1.02] transition-transform">
+<span class="font-label-lg text-label-lg text-primary-fixed-dim mb-1 uppercase">Total Runs</span>
+<span id="playerScoreEl" class="font-display-xl text-display-xl text-white">0</span>
+</div>
+<!-- Strike Rate Card -->
+<div class="glass-panel p-stack-md rounded-xl flex flex-col items-center justify-center hover:scale-[1.02] transition-transform">
+<span class="font-label-lg text-label-lg text-secondary mb-1 uppercase">Strike Rate</span>
+<span id="strikeRate" class="font-headline-lg text-headline-lg text-white">0.0</span>
+</div>
+<!-- Highest Hit Card -->
+
+<!-- Match Comparison -->
+<div class="glass-panel p-stack-md rounded-xl md:col-span-3 flex justify-between items-center hover:scale-[1.01] transition-transform">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="font-body-md text-body-md">Match Score</span>
+</div>
+<span id="matchSummaryText" class="font-title-lg text-title-lg text-on-surface">YOU 0 - 0 CPU</span>
+</div>
+</div>
+
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-gutter w-full sm:justify-center">
+<button onclick="playAgain()" class="bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg py-4 px-8 rounded-xl shadow-[0_0_20px_rgba(63,229,108,0.3)] hover:scale-105 active:scale-95 transition-all uppercase flex items-center justify-center gap-2 font-bold">
+<span class="material-symbols-outlined">refresh</span> Play Again
+</button>
+<button onclick="goToMainMenu()" class="glass-panel hover:bg-white/20 text-white font-label-lg text-label-lg py-4 px-8 rounded-xl hover:scale-105 active:scale-95 transition-all uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">home</span> Main Menu
+</button>
+<button onclick="shareScore()" class="glass-panel hover:bg-white/20 text-white font-label-lg text-label-lg py-4 px-8 rounded-xl hover:scale-105 active:scale-95 transition-all uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span> Share
+</button>
+</div>
+</main>
+
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/5 dark:bg-surface-container-lowest/30 backdrop-blur-xl border-t border-white/10 shadow-2xl">
+<div onclick="playAgain()" class="cursor-pointer flex flex-col items-center justify-center bg-primary/20 text-primary-fixed-dim rounded-xl px-4 py-1 shadow-[0_0_10px_rgba(63,229,108,0.4)]">
+<span class="material-symbols-outlined">sports_cricket</span>
+<span class="font-label-md text-label-md">Play</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">Stats</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Load State from LocalStorage
+        const savedState = localStorage.getItem("gameState");
+        const gameState = savedState ? JSON.parse(savedState) : { 
+            playerScore: 0, 
+            cpuScore: 0, 
+            playerBalls: 0, 
+            result: "WIN",
+            highestHit: 6 
+        };
+
+        const playerScore = gameState.playerScore || 0;
+        const cpuScore = gameState.cpuScore || 0;
+        const playerBalls = gameState.playerBalls || 0;
+
+        // Populate DOM elements
+        const playerScoreEl = document.getElementById("playerScoreEl");
+        const strikeRateEl = document.getElementById("strikeRate");
+        const highestHitEl = document.getElementById("highestHit");
+        const matchSummaryText = document.getElementById("matchSummaryText");
+
+        if (playerScoreEl) playerScoreEl.textContent = playerScore;
+        if (highestHitEl) highestHitEl.textContent = gameState.highestHit || 6;
+        if (matchSummaryText) matchSummaryText.textContent = `YOU ${playerScore} - ${cpuScore} CPU`;
+
+        // Calculate & Display Strike Rate
+        if (strikeRateEl) {
+            const sr = playerBalls > 0 ? ((playerScore / playerBalls) * 100).toFixed(1) : "0.0";
+            strikeRateEl.textContent = sr;
+        }
+
+        // Adjust UI depending on Match Outcome (WIN, LOSS, TIE)
+        applyMatchOutcomeUI(gameState);
+
+        // Visual effects
+        initParticles();
+        if (gameState.result === "WIN" || !gameState.result) {
+            spawnConfetti();
+            setInterval(spawnConfetti, 5000);
+        }
+    });
+
+    function applyMatchOutcomeUI(gameState) {
+        const resultTitle = document.getElementById("resultTitle");
+        const resultSubtitle = document.getElementById("resultSubtitle");
+        const resultIcon = document.getElementById("resultIcon");
+        const resultGlow = document.getElementById("resultGlow");
+
+        if (gameState.result === "LOSS" || gameState.playerScore < gameState.cpuScore) {
+            resultTitle.textContent = "Defeat";
+            resultTitle.className = "font-display-lg text-display-lg text-error uppercase tracking-widest mb-2";
+            resultSubtitle.textContent = "Hard luck! Better strategy next time.";
+            resultIcon.textContent = "sentiment_dissatisfied";
+            resultIcon.className = "material-symbols-outlined text-[96px] text-error";
+            resultGlow.className = "absolute -inset-8 bg-error/20 blur-3xl rounded-full animate-pulse";
+        } else if (gameState.result === "TIE") {
+            resultTitle.textContent = "Match Tied";
+            resultTitle.className = "font-display-lg text-display-lg text-tertiary uppercase tracking-widest mb-2";
+            resultSubtitle.textContent = "An evenly fought battle!";
+            resultIcon.textContent = "equalizer";
+            resultIcon.className = "material-symbols-outlined text-[96px] text-tertiary";
+            resultGlow.className = "absolute -inset-8 bg-tertiary/20 blur-3xl rounded-full animate-pulse";
+        }
+    }
+
+    function playAgain() {
+        localStorage.removeItem("gameState");
+        window.location.href = "toss_screen.html";
+    }
+
+    function goToMainMenu() {
+        window.location.href = "home_screen.html";
+    }
+
+    async function shareScore() {
+    const savedState = localStorage.getItem("gameState");
+    const gameState = savedState ? JSON.parse(savedState) : { playerScore: 0 };
+
+    const shareText = `🏏 I just scored ${gameState.playerScore} runs in Hand Cricket Pro! Can you beat me?`;
+
+    try {
+        if (navigator.share) {
+            await navigator.share({
+                title: "Hand Cricket Pro",
+                text: shareText,
+                url: window.location.href
+            });
+        } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(shareText);
+            alert("Score copied to clipboard!");
+        } else {
+            prompt("Copy your score:", shareText);
+        }
+    } catch (err) {
+        console.log("Share cancelled or failed:", err);
+    }
+}
+
+    function initParticles() {
+        const particleContainer = document.getElementById('particle-container');
+        if (!particleContainer) return;
+        
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle animate-float';
+            const size = Math.random() * 4 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100 + 100}vh`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particle.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            particleContainer.appendChild(particle);
+        }
+    }
+
+    function spawnConfetti() {
+        const colors = ['#3fe56c', '#69ff87', '#3ce36a', '#ffffff', '#9ecaff'];
+        for (let i = 0; i < 60; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.top = '-10px';
+            conf.style.borderRadius = '2px';
+            conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            document.body.appendChild(conf);
+
+            const duration = Math.random() * 3 + 2;
+            const sideMove = (Math.random() - 0.5) * 400;
+
+            const animation = conf.animate([
+                { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+                { transform: `translate(${sideMove}px, 100vh) rotate(720deg)`, opacity: 0 }
+            ], {
+                duration: duration * 1000,
+                easing: 'cubic-bezier(.17,.67,.83,.67)'
+            });
+
+            animation.onfinish = () => conf.remove();
+        }
+    }
+</script>
+</body>
+</html>

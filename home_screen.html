@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HAND CRICKET PRO - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        (function() {
+            const savedTheme = localStorage.getItem('appTheme');
+            // Default to dark mode if not specified
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#3ce36a",
+                        "on-tertiary-fixed": "#261a00",
+                        "primary": "#3fe56c",
+                        "on-primary-fixed": "#002108",
+                        "on-primary": "#003912",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "surface": "#0b1326",
+                        "surface-tint": "#3ce36a",
+                        "error-container": "#93000a",
+                        "surface-bright": "#31394d",
+                        "on-background": "#dae2fd",
+                        "primary-fixed": "#69ff87",
+                        "background": "#0b1326",
+                        "inverse-surface": "#dae2fd",
+                        "surface-variant": "#2d3449",
+                        "secondary-container": "#1e95f2",
+                        "on-tertiary": "#3f2e00",
+                        "secondary-fixed": "#d1e4ff",
+                        "secondary": "#9ecaff",
+                        "primary-container": "#00c853",
+                        "on-surface": "#dae2fd",
+                        "on-secondary-container": "#002b4d",
+                        "outline": "#869583",
+                        "outline-variant": "#3c4a3c",
+                        "on-secondary": "#003258",
+                        "on-surface-variant": "#bbcbb8",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "surface-container-high": "#222a3d",
+                        "tertiary-container": "#dba500",
+                        "tertiary": "#fdbf02",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "secondary-fixed-dim": "#9ecaff",
+                        "surface-container": "#171f33",
+                        "surface-dim": "#0b1326",
+                        "on-secondary-fixed": "#001d36",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-fixed-variant": "#00531e",
+                        "inverse-primary": "#006e2a",
+                        "surface-container-lowest": "#060e20",
+                        "on-primary-container": "#004c1b",
+                        "on-tertiary-container": "#543e00",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#131b2e",
+                        "tertiary-fixed": "#ffdf9e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "container-padding-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-xl": ["Montserrat"],
+                        "title-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.2;
+        } 50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.5;
+        } 100% {
+        transform: translateY(0px) rotate(360deg);
+        opacity: 0.2;
+        }
+    }
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+    animation: float linear infinite
+    }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.glass-button {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+.glass-button:hover {
+    background: rgba(63, 229, 108, 0.15);
+    border-color: rgba(63, 229, 108, 0.5);
+    box-shadow: 0 0 20px rgba(63, 229, 108, 0.2);
+    transform: scale(1.02)
+    }
+.stadium-bg {
+    background-image: linear-gradient(to bottom, rgba(11, 19, 38, 0.85), rgba(11, 19, 38, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuAY-EKHKtMKkCQMr9huM72MER7vVmSUGV900EWRRF-2W9CVIMpnRk2fq_5jdkIM4xxXGb4xkeegMaMvt-GOYUuCaqKSXVy59r17R5inQZfTm6-daNz-hPRvEFUpJqjzD82A12NnPFnOS5TzrdhL1FNqh5iFrWefRqAQCD9-vKXQHnjvjxDyBevMOs1WFOgiDLImXbVWweE-4NxJS5qEc_As1rWx4UrED7A9qdnJ3xK94bCHFsxRG4UvvQ);
+    background-size: cover;
+    background-position: center
+    }
+.logo-glow {
+    filter: drop-shadow(0 0 15px rgba(63, 229, 108, 0.4))
+    }</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen overflow-y-auto selection:bg-primary selection:text-on-primary">
+<div class="fixed inset-0 stadium-bg -z-10" data-alt="A cinematic, low-angle shot of a grand cricket stadium at night, illuminated by towering floodlights that create long dramatic shadows across the lush green grass. The atmosphere is thick with a hazy mist, refracting the cool white and warm yellow light of the arena. Floating digital bokeh and subtle light particles dance in the foreground, mirroring a high-tech glassmorphism interface. The mood is epic, high-stakes, and futuristic, perfectly capturing the adrenaline of a championship final match."></div>
+<div class="fixed inset-0 -z-5 pointer-events-none" id="particle-container"></div>
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile h-16 md:px-container-padding-desktop bg-white/10 dark:bg-surface-variant/10 backdrop-blur-md border-b border-white/15 shadow-[0_0_15px_rgba(0,200,83,0.2)]">
+<div class="flex items-center gap-3">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tight md:font-headline-lg md:text-headline-lg">HAND CRICKET PRO</span>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Toggle Sound" class="glass-button p-2 rounded-full hover:scale-105 active:scale-95 transition-all text-primary-fixed-dim">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+<a href="settings_screen.html">
+<button aria-label="Settings" class="glass-button p-2 rounded-full hover:scale-105 active:scale-95 transition-all text-primary-fixed-dim">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</a>
+<button aria-label="Account" class="glass-button p-2 rounded-full hover:scale-105 active:scale-95 transition-all text-primary-fixed-dim">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-20 pb-32 px-container-padding-mobile">
+<div class="mb-12 text-center animate-pulse-slow">
+<img alt="HandCricket Pro Logo" class="w-48 h-48 md:w-64 md:h-64 object-contain logo-glow mx-auto mb-6 transition-transform hover:scale-110 duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyoYQiCvnmhX9AgSrPGeEB8o1zz7D26Fk4TfpA8_xZkSznTC429HmZqzhlCA_oae6UgZgTym5Kc48miw0rvJ3H16fwLL7EXle7OCWm5wxE68VEpV1Uftpfib7Vmh6w5MbJ6B4rYuybqqEniJKiuonhooBMB-rdtb7ST-zWI9aytiKLFIfIhhGq_b8T8gu6OI-bJnt4OuTkkTQpJxoqQz0DE-eej1IOFIQ1VrF9e5D9n8oaJndUJtBiqg"/>
+<h1 class="font-display-xl text-display-xl text-white tracking-tighter hidden md:block">MASTER THE FINGERS</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-md mx-auto">Ultimate high-stakes strategy game based on the classic playground cricket.</p>
+</div>
+<nav class="flex flex-col gap-4 w-full max-w-sm">
+    <a href="toss_screen.html">
+<button class="w-full group relative overflow-hidden bg-primary-container/20 border border-primary/30 hover:bg-primary-container/40 text-primary-fixed-dim px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(63,229,108,0.2)] hover:shadow-[0_0_30px_rgba(63,229,108,0.4)] transition-all duration-300 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile tracking-wide">Play Now</span>
+</div>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">chevron_right</span>
+</button></a>
+<button class="glass-button w-full px-8 py-4 rounded-xl flex items-center justify-between group text-on-surface hover:text-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl">leaderboard</span>
+<span class="font-title-lg text-title-lg">Statistics</span>
+</div>
+<span class="material-symbols-outlined opacity-50 group-hover:opacity-100 transition-opacity">trending_up</span>
+</button>
+<a href="how_to_play.html">
+<button class="glass-button w-full px-8 py-4 rounded-xl flex items-center justify-between group text-on-surface hover:text-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<span class="font-title-lg text-title-lg">How to Play</span>
+</div>
+<span class="material-symbols-outlined opacity-50 group-hover:opacity-100 transition-opacity">info</span>
+</button>
+</a>
+<a href="settings_screen.html">
+<button class="glass-button w-full px-8 py-4 rounded-xl flex items-center justify-between group text-on-surface hover:text-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="font-title-lg text-title-lg">Settings</span>
+</div>
+<span class="material-symbols-outlined opacity-50 group-hover:opacity-100 transition-opacity">tune</span>
+</button></a>
+</nav>
+<div class="mt-12 flex gap-8">
+<div class="flex flex-col items-center">
+<span class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest mb-1">Rank</span>
+<span class="text-tertiary-fixed-dim font-headline-lg-mobile text-headline-lg-mobile">#42</span>
+</div>
+<div class="w-px h-10 bg-white/10 self-center"></div>
+<div class="flex flex-col items-center">
+<span class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest mb-1">Win Rate</span>
+<span class="text-primary font-headline-lg-mobile text-headline-lg-mobile">68%</span>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/5 dark:bg-surface-container-lowest/30 backdrop-blur-xl border-t border-white/10 shadow-2xl md:hidden">
+<a class="flex flex-col items-center justify-center bg-primary/20 text-primary-fixed-dim rounded-xl px-4 py-1 shadow-[0_0_10px_rgba(63,229,108,0.4)] transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+<span class="font-label-md text-label-md mt-1">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md mt-1">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-label-md text-label-md mt-1">Settings</span>
+</a>
+</nav>
+<script>
+        const particleContainer = document.getElementById('particle-container');
+        const particleCount = 20;
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 4 + 1;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * -20;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.top = `${top}%`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            
+            particleContainer.appendChild(particle);
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        const buttons = document.querySelectorAll('.glass-button, button');
+        buttons.forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = '';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+    </script>
+</body></html>
