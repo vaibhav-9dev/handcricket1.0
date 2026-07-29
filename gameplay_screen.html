@@ -348,21 +348,23 @@ body {
 </nav>
 
 <script>
-    // Initialize Game State from localStorage or Fallback
-    let gameState = JSON.parse(localStorage.getItem("gameState")) || {
-        tossWinner: "player",
-        playerBatting: true,
-        innings: 1,
-        playerScore: 0,
-        playerBalls: 0,
-        cpuBalls: 0,
-        cpuScore: 0,
-        playerWickets: 0,
-        cpuWickets: 0,
-        target: 0,
-        lastPlayerChoice: null,
-        lastCpuChoice: null,
-        gameOver: false
+    // Initialize Game State with self-healing fallback for balls
+    let loadedState = JSON.parse(localStorage.getItem("gameState")) || {};
+    
+    let gameState = {
+        tossWinner: loadedState.tossWinner || "player",
+        playerBatting: loadedState.playerBatting !== undefined ? loadedState.playerBatting : true,
+        innings: loadedState.innings || 1,
+        playerScore: loadedState.playerScore || 0,
+        playerBalls: loadedState.playerBalls || 0,
+        cpuScore: loadedState.cpuScore || 0,
+        cpuBalls: loadedState.cpuBalls || 0,
+        playerWickets: loadedState.playerWickets || 0,
+        cpuWickets: loadedState.cpuWickets || 0,
+        target: loadedState.target || 0,
+        lastPlayerChoice: loadedState.lastPlayerChoice || null,
+        lastCpuChoice: loadedState.lastCpuChoice || null,
+        gameOver: loadedState.gameOver || false
     };
 
     let isProcessingTurn = false;
@@ -415,7 +417,7 @@ body {
         cpuWicketsEl.textContent = `/${gameState.cpuWickets}`;
         if (cpuOversEl) cpuOversEl.textContent = `(${formatOvers(gameState.cpuBalls)})`;
 
-        // Calculate Strike Rates dynamically
+        // Precise Strike Rate Calculation
         const playerSR = gameState.playerBalls > 0 
             ? ((gameState.playerScore / gameState.playerBalls) * 100).toFixed(1) 
             : "0.0";
@@ -479,7 +481,7 @@ body {
         const isOut = playerChoice === cpuChoice;
 
         setTimeout(() => {
-            // ALWAYS increment balls faced for the current batter
+            // Increment balls faced for the active batter
             if (gameState.playerBatting) {
                 gameState.playerBalls += 1;
             } else {
@@ -505,7 +507,6 @@ body {
                 }
 
                 if (gameState.innings === 1) {
-                    // End of First Innings
                     const firstInningsScore = gameState.playerBatting ? gameState.playerScore : gameState.cpuScore;
                     gameState.target = firstInningsScore + 1;
                     gameState.innings = 2;
@@ -515,7 +516,6 @@ body {
                     updateUI();
                     window.location.href = "innings_break.html";
                 } else {
-                    // End of Second Innings -> Game Over
                     gameState.gameOver = true;
                     saveState();
                     updateUI();
@@ -533,7 +533,9 @@ body {
                 lastBallValEl.textContent = `+${runs}`;
                 lastBallValEl.className = "w-6 h-6 flex items-center justify-center rounded-full bg-surface-container-highest text-label-md font-bold text-tertiary";
 
-                // Check chase condition in 2nd Innings
+                saveState();
+                updateUI(); // Immediately refresh SR and score
+
                 if (gameState.innings === 2) {
                     const chaserScore = gameState.playerBatting ? gameState.playerScore : gameState.cpuScore;
                     if (chaserScore >= gameState.target) {
@@ -545,8 +547,6 @@ body {
                     }
                 }
 
-                saveState();
-                updateUI();
                 resetCardsDelay();
             }
         }, 600);
@@ -590,8 +590,6 @@ body {
             modalBtn.textContent = "Play Again";
             modalBtn.setAttribute("onclick", "resetGame()");
             gameModal.classList.remove("hidden");
-        } else if (gameState.winner === "player") {
-            window.location.href = "match_result.html";
         } else {
             window.location.href = "match_result.html";
         }
@@ -623,10 +621,10 @@ body {
         }
     }
 
-    // Initialize View
+    // Initialize View & sync back corrected structure to storage
     createParticles();
+    saveState();
     updateUI();
-
 </script>
 </body>
 </html>
