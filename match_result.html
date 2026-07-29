@@ -254,30 +254,29 @@
         const savedState = localStorage.getItem("gameState");
         const gameState = savedState ? JSON.parse(savedState) : { 
             playerScore: 0, 
+            playerBalls: 0,
             cpuScore: 0, 
-            playerBalls: 0, 
-            result: "WIN",
-            highestHit: 6 
+            result: "WIN"
         };
 
         const playerScore = gameState.playerScore || 0;
-        const cpuScore = gameState.cpuScore || 0;
         const playerBalls = gameState.playerBalls || 0;
+        const cpuScore = gameState.cpuScore || 0;
 
         // Populate DOM elements
         const playerScoreEl = document.getElementById("playerScoreEl");
         const strikeRateEl = document.getElementById("strikeRate");
-        const highestHitEl = document.getElementById("highestHit");
         const matchSummaryText = document.getElementById("matchSummaryText");
 
         if (playerScoreEl) playerScoreEl.textContent = playerScore;
-        if (highestHitEl) highestHitEl.textContent = gameState.highestHit || 6;
         if (matchSummaryText) matchSummaryText.textContent = `YOU ${playerScore} - ${cpuScore} CPU`;
 
-        // Calculate & Display Strike Rate
+        // Calculate & Display Strike Rate from Balls Faced
         if (strikeRateEl) {
-            const sr = playerBalls > 0 ? ((playerScore / playerBalls) * 100).toFixed(1) : "0.0";
-            strikeRateEl.textContent = sr;
+            const calculatedSR = playerBalls > 0 
+                ? ((playerScore / playerBalls) * 100).toFixed(1) 
+                : "0.0";
+            strikeRateEl.textContent = calculatedSR;
         }
 
         // Adjust UI depending on Match Outcome (WIN, LOSS, TIE)
@@ -324,28 +323,28 @@
     }
 
     async function shareScore() {
-    const savedState = localStorage.getItem("gameState");
-    const gameState = savedState ? JSON.parse(savedState) : { playerScore: 0 };
+        const savedState = localStorage.getItem("gameState");
+        const gameState = savedState ? JSON.parse(savedState) : { playerScore: 0 };
 
-    const shareText = `🏏 I just scored ${gameState.playerScore} runs in Hand Cricket Pro! Can you beat me?`;
+        const shareText = `🏏 I just scored ${gameState.playerScore} runs in Hand Cricket Pro! Can you beat me?`;
 
-    try {
-        if (navigator.share) {
-            await navigator.share({
-                title: "Hand Cricket Pro",
-                text: shareText,
-                url: window.location.href
-            });
-        } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(shareText);
-            alert("Score copied to clipboard!");
-        } else {
-            prompt("Copy your score:", shareText);
+        try {
+            if (navigator.share) {
+                await navigator.share({
+                    title: "Hand Cricket Pro",
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else if (navigator.clipboard) {
+                await navigator.clipboard.writeText(shareText);
+                alert("Score copied to clipboard!");
+            } else {
+                prompt("Copy your score:", shareText);
+            }
+        } catch (err) {
+            console.log("Share cancelled or failed:", err);
         }
-    } catch (err) {
-        console.log("Share cancelled or failed:", err);
     }
-}
 
     function initParticles() {
         const particleContainer = document.getElementById('particle-container');
@@ -392,6 +391,5 @@
             animation.onfinish = () => conf.remove();
         }
     }
-</script>
-</body>
+</script></body>
 </html>
