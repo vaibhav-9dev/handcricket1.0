@@ -7,10 +7,8 @@
 
     <title>HAND CRICKET PRO - Gameplay</title>
 
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-    <!-- Theme -->
     <script>
         (function () {
             const savedTheme = localStorage.getItem('appTheme');
@@ -23,21 +21,19 @@
         })();
     </script>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
 
-    <!-- Tailwind Configuration -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
-
             theme: {
                 extend: {
-
                     colors: {
                         "primary-fixed-dim": "#3ce36a",
                         "on-tertiary-fixed": "#261a00",
@@ -88,14 +84,14 @@
                         "tertiary-fixed": "#ffdf9e"
                     },
 
-                    borderRadius: {
+                    "borderRadius": {
                         "DEFAULT": "0.25rem",
                         "lg": "0.5rem",
                         "xl": "0.75rem",
                         "full": "9999px"
                     },
 
-                    spacing: {
+                    "spacing": {
                         "stack-sm": "8px",
                         "container-padding-mobile": "20px",
                         "stack-lg": "32px",
@@ -105,7 +101,7 @@
                         "container-padding-desktop": "40px"
                     },
 
-                    fontFamily: {
+                    "fontFamily": {
                         "label-md": ["Inter"],
                         "body-lg": ["Inter"],
                         "label-lg": ["Inter"],
@@ -117,79 +113,79 @@
                         "display-lg": ["Montserrat"]
                     },
 
-                    fontSize: {
+                    "fontSize": {
                         "label-md": [
                             "12px",
                             {
-                                lineHeight: "1.2",
-                                fontWeight: "500"
+                                "lineHeight": "1.2",
+                                "fontWeight": "500"
                             }
                         ],
 
                         "body-lg": [
                             "18px",
                             {
-                                lineHeight: "1.6",
-                                fontWeight: "400"
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
                             }
                         ],
 
                         "label-lg": [
                             "14px",
                             {
-                                lineHeight: "1.2",
-                                letterSpacing: "0.05em",
-                                fontWeight: "600"
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
                             }
                         ],
 
                         "headline-lg": [
                             "32px",
                             {
-                                lineHeight: "1.2",
-                                fontWeight: "700"
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
                             }
                         ],
 
                         "headline-lg-mobile": [
                             "24px",
                             {
-                                lineHeight: "1.2",
-                                fontWeight: "700"
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
                             }
                         ],
 
                         "display-xl": [
                             "64px",
                             {
-                                lineHeight: "1.1",
-                                letterSpacing: "-0.02em",
-                                fontWeight: "800"
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
                             }
                         ],
 
                         "title-lg": [
                             "20px",
                             {
-                                lineHeight: "1.4",
-                                fontWeight: "600"
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
                             }
                         ],
 
                         "body-md": [
                             "16px",
                             {
-                                lineHeight: "1.6",
-                                fontWeight: "400"
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
                             }
                         ],
 
                         "display-lg": [
                             "48px",
                             {
-                                lineHeight: "1.2",
-                                letterSpacing: "-0.01em",
-                                fontWeight: "700"
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
                             }
                         ]
                     }
@@ -199,40 +195,48 @@
     </script>
 
     <style>
+        /* ==============================
+           PAGE SCROLLING
+           ============================== */
+
         html {
+            min-height: 100%;
+            overflow-x: hidden;
             overflow-y: auto;
-            overscroll-behavior-y: contain;
         }
 
         body {
             background-color: #0b1326;
+            min-height: 100vh;
 
-            /* IMPORTANT: scrolling enabled */
+            /* IMPORTANT:
+               Horizontal overflow hidden,
+               vertical scrolling enabled */
             overflow-x: hidden;
             overflow-y: auto;
-
-            min-height: 100vh;
 
             user-select: none;
             -webkit-tap-highlight-color: transparent;
 
-            /* Better mobile scrolling */
-            -webkit-overflow-scrolling: touch;
+            padding-bottom: 80px;
         }
 
-        /* Glass panels */
+        /* ==============================
+           GLASS EFFECT
+           ============================== */
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-
             border: 1px solid rgba(255, 255, 255, 0.15);
-
-            box-shadow:
-                0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        /* Stadium */
+        /* ==============================
+           STADIUM BACKGROUND
+           ============================== */
+
         .stadium-bg {
             background-image:
                 linear-gradient(
@@ -243,7 +247,10 @@
                 url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVjl0D8R5ZS_0ZeO09GwS1Th55saBstBsZ2QzWLnwwJUPohr1KRktXLtB4kgJClCQo0ilejZTINWHnIqrd420A683XwCD6X3hIpjuKqqCk6tJr9UEtn8qmWCAlaBKuiRzuvT9WsALY_iUbol3K1Wk2ToOdEdCmOwBrl309sanpBIiD6luQYM4Fuw_hXFUP-OEsfLHFVLy67s0eh6QMvk7CWz2OlCwUsr28-C0gefgzUQuPhfHUil8Ucg");
         }
 
-        /* Particles */
+        /* ==============================
+           PARTICLES
+           ============================== */
+
         .floating-particle {
             position: absolute;
             background: white;
@@ -263,6 +270,10 @@
                 transform: translateY(-10px) translateX(5px);
             }
         }
+
+        /* ==============================
+           GAME ANIMATIONS
+           ============================== */
 
         .perspective-1000 {
             perspective: 1000px;
@@ -311,44 +322,46 @@
             }
         }
 
-        /* Custom scrollbar */
+        /* ==============================
+           MOBILE SCROLLBAR
+           ============================== */
 
         ::-webkit-scrollbar {
             width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.03);
+            background: #0b1326;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(63, 229, 108, 0.45);
-            border-radius: 999px;
+            background: rgba(63, 229, 108, 0.35);
+            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(63, 229, 108, 0.7);
-        }
-
-        /* Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(63, 229, 108, 0.45) rgba(255, 255, 255, 0.03);
+            background: rgba(63, 229, 108, 0.6);
         }
     </style>
 </head>
 
-
 <body class="font-body-md text-on-background min-h-screen w-full flex flex-col items-center overflow-x-hidden overflow-y-auto">
 
-    <!-- Atmospheric Particles -->
+    <!-- ==============================
+         ATMOSPHERIC PARTICLES
+         ============================== -->
+
     <div class="fixed inset-0 pointer-events-none z-0" id="particles"></div>
 
-    <!-- Stadium Background -->
+    <!-- ==============================
+         STADIUM BACKGROUND
+         ============================== -->
+
     <div class="fixed inset-0 stadium-bg bg-cover bg-center -z-10"></div>
 
-
-    <!-- ================= TOP NAVIGATION ================= -->
+    <!-- ==============================
+         TOP NAVIGATION
+         ============================== -->
 
     <header
         class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-10 h-16 bg-white/10 dark:bg-surface-variant/10 backdrop-blur-md border-b border-white/15 shadow-[0_0_15px_rgba(0,200,83,0.2)]">
@@ -359,7 +372,8 @@
 
         <div class="flex gap-4">
 
-            <button onclick="resetGame()"
+            <button
+                onclick="resetGame()"
                 class="material-symbols-outlined text-primary-fixed-dim hover:scale-105 transition-transform duration-200 active:scale-95"
                 title="Restart Game">
                 restart_alt
@@ -373,23 +387,26 @@
         </div>
     </header>
 
-
-    <!-- ================= SCOREBOARD ================= -->
+    <!-- ==============================
+         SCOREBOARD
+         ============================== -->
 
     <section class="w-full px-4 mt-20 z-10 max-w-4xl">
 
         <div class="grid grid-cols-3 gap-3">
 
-            <!-- Player -->
+            <!-- YOUR SCORE -->
 
             <div
                 class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center border-l-4 border-primary shadow-[0_0_15px_rgba(63,229,108,0.2)]">
 
-                <span class="text-label-md font-label-md text-on-surface-variant/70 flex items-center gap-1">
+                <span
+                    class="text-label-md font-label-md text-on-surface-variant/70 flex items-center gap-1">
 
                     YOU
 
-                    <span id="player-role-icon"
+                    <span
+                        id="player-role-icon"
                         class="material-symbols-outlined text-xs text-primary">
                         sports_cricket
                     </span>
@@ -398,17 +415,20 @@
 
                 <div class="flex items-baseline gap-1">
 
-                    <span id="player-score"
+                    <span
+                        id="player-score"
                         class="font-headline-lg-mobile text-headline-lg-mobile text-primary">
                         0
                     </span>
 
-                    <span id="player-wickets"
+                    <span
+                        id="player-wickets"
                         class="font-title-lg text-title-lg text-primary/70">
                         /0
                     </span>
 
-                    <span id="player-overs"
+                    <span
+                        id="player-overs"
                         class="text-xs text-on-surface-variant ml-1">
                         (0.0)
                     </span>
@@ -422,26 +442,26 @@
 
             </div>
 
-
-            <!-- Target -->
+            <!-- TARGET -->
 
             <div
                 class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center border-l-4 border-tertiary shadow-[0_0_15px_rgba(253,191,2,0.2)]">
 
-                <span id="target-label"
+                <span
+                    id="target-label"
                     class="text-label-md font-label-md text-on-surface-variant/70">
                     1ST INNINGS
                 </span>
 
-                <span id="target-val"
+                <span
+                    id="target-val"
                     class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary">
                     ---
                 </span>
 
             </div>
 
-
-            <!-- CPU -->
+            <!-- CPU SCORE -->
 
             <div
                 class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center border-l-4 border-secondary shadow-[0_0_15px_rgba(30,149,242,0.2)]">
@@ -451,7 +471,8 @@
 
                     COMPUTER
 
-                    <span id="cpu-role-icon"
+                    <span
+                        id="cpu-role-icon"
                         class="material-symbols-outlined text-xs text-secondary">
                         sports_baseball
                     </span>
@@ -460,17 +481,20 @@
 
                 <div class="flex items-baseline gap-1">
 
-                    <span id="cpu-score"
+                    <span
+                        id="cpu-score"
                         class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">
                         0
                     </span>
 
-                    <span id="cpu-wickets"
+                    <span
+                        id="cpu-wickets"
                         class="font-title-lg text-title-lg text-secondary/70">
                         /0
                     </span>
 
-                    <span id="cpu-overs"
+                    <span
+                        id="cpu-overs"
                         class="text-xs text-on-surface-variant ml-1">
                         (0.0)
                     </span>
@@ -485,33 +509,36 @@
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ================= GAMEPLAY ================= -->
+    <!-- ==============================
+         GAMEPLAY AREA
+         ============================== -->
 
     <main
-        class="w-full flex flex-col items-center justify-center relative z-10 perspective-1000 py-8 min-h-[500px]">
+        class="w-full flex flex-col items-center justify-center relative z-10 perspective-1000 py-8">
 
-        <!-- Status -->
+        <!-- STATUS -->
 
-        <div id="status-banner"
-            class="mb-4 glass-panel px-6 py-2 rounded-full border-primary/40 text-primary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg">
+        <div
+            id="status-banner"
+            class="mb-6 glass-panel px-6 py-2 rounded-full border-primary/40 text-primary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg">
 
             YOU ARE BATTING
 
         </div>
 
+        <!-- HAND CARDS -->
 
         <div
-            class="flex flex-row items-center justify-center gap-6 md:gap-12 w-full px-6">
+            class="flex flex-row items-center justify-center gap-4 md:gap-12 w-full px-4">
 
-            <!-- Player Card -->
+            <!-- PLAYER CARD -->
 
             <div class="flex flex-col items-center gap-3">
 
-                <div id="player-card"
+                <div
+                    id="player-card"
                     class="w-36 h-36 md:w-52 md:h-52 glass-panel rounded-2xl flex items-center justify-center relative overflow-hidden hand-card border-2 border-primary/40">
 
                     <div
@@ -531,7 +558,6 @@
                         </p>
 
                     </div>
-
                 </div>
 
                 <div
@@ -541,22 +567,19 @@
 
             </div>
 
-
             <!-- VS -->
 
             <div
                 class="glass-panel w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-white/30 text-lg md:text-xl">
-
                 VS
-
             </div>
 
-
-            <!-- CPU Card -->
+            <!-- CPU CARD -->
 
             <div class="flex flex-col items-center gap-3">
 
-                <div id="cpu-card"
+                <div
+                    id="cpu-card"
                     class="w-36 h-36 md:w-52 md:h-52 glass-panel rounded-2xl flex items-center justify-center relative overflow-hidden hand-card border-2 border-secondary/40 bg-surface-container/40">
 
                     <div
@@ -590,12 +613,14 @@
 
     </main>
 
+    <!-- ==============================
+         CONTROLS
+         ============================== -->
 
-    <!-- ================= CONTROLS ================= -->
+    <section
+        class="w-full z-20 pb-28 md:pb-12 max-w-2xl">
 
-    <section class="w-full z-20 pb-28 md:pb-12 max-w-2xl">
-
-        <!-- Live Stats -->
+        <!-- LIVE STATS -->
 
         <div
             class="w-full flex justify-between px-6 mb-3 items-center">
@@ -604,13 +629,13 @@
 
                 <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
 
-                <span id="live-stat-text"
+                <span
+                    id="live-stat-text"
                     class="text-label-md font-label-md text-on-surface-variant/80">
                     INNINGS 1 IN PROGRESS
                 </span>
 
             </div>
-
 
             <div
                 class="glass-panel px-3 py-1 rounded-lg flex gap-2 items-center">
@@ -620,7 +645,8 @@
                     LAST BALL:
                 </span>
 
-                <span id="last-ball-val"
+                <span
+                    id="last-ball-val"
                     class="w-6 h-6 flex items-center justify-center rounded-full bg-surface-container-highest text-label-md font-bold text-tertiary">
                     -
                 </span>
@@ -629,105 +655,93 @@
 
         </div>
 
-
-        <!-- Buttons -->
+        <!-- BUTTONS -->
 
         <div class="px-4">
 
-            <div id="buttons-grid"
+            <div
+                id="buttons-grid"
                 class="grid grid-cols-6 gap-2 md:gap-4 max-w-2xl mx-auto">
 
+                <button
+                    onclick="playTurn(1)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-blue-400 group">
 
-                <button onclick="playTurn(1)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-blue-400">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-blue-400">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-blue-400">
                         1
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-blue-400/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-blue-400/60 mt-0.5">
                         Run
                     </span>
 
                 </button>
 
+                <button
+                    onclick="playTurn(2)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-cyan-400 group">
 
-                <button onclick="playTurn(2)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-cyan-400">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-cyan-400">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-cyan-400">
                         2
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-cyan-400/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-cyan-400/60 mt-0.5">
                         Runs
                     </span>
 
                 </button>
 
+                <button
+                    onclick="playTurn(3)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-yellow-400 group">
 
-                <button onclick="playTurn(3)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-yellow-400">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-yellow-400">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-yellow-400">
                         3
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-yellow-400/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-yellow-400/60 mt-0.5">
                         Runs
                     </span>
 
                 </button>
 
+                <button
+                    onclick="playTurn(4)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-orange-400 group">
 
-                <button onclick="playTurn(4)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-orange-400">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-orange-400">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-orange-400">
                         4
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-orange-400/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-orange-400/60 mt-0.5">
                         Bndry
                     </span>
 
                 </button>
 
+                <button
+                    onclick="playTurn(5)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-purple-400 group">
 
-                <button onclick="playTurn(5)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-purple-400">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-purple-400">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-purple-400">
                         5
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-purple-400/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-purple-400/60 mt-0.5">
                         Runs
                     </span>
 
                 </button>
 
+                <button
+                    onclick="playTurn(6)"
+                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-primary group">
 
-                <button onclick="playTurn(6)"
-                    class="aspect-square glass-panel rounded-2xl flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-90 border-b-4 border-primary">
-
-                    <span
-                        class="font-headline-lg-mobile text-headline-lg-mobile text-primary">
+                    <span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">
                         6
                     </span>
 
-                    <span
-                        class="text-[10px] uppercase font-bold text-primary/60 mt-0.5">
+                    <span class="text-[10px] uppercase font-bold text-primary/60 mt-0.5">
                         Maxi
                     </span>
 
@@ -739,30 +753,34 @@
 
     </section>
 
+    <!-- ==============================
+         GAME MODAL
+         ============================== -->
 
-    <!-- ================= GAME MODAL ================= -->
-
-    <div id="game-modal"
+    <div
+        id="game-modal"
         class="hidden fixed inset-0 z-50 bg-surface/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center">
 
         <div
             class="glass-panel p-8 rounded-3xl max-w-md w-full flex flex-col items-center border-2 border-primary/30 shadow-2xl">
 
-            <span id="modal-icon"
+            <span
+                id="modal-icon"
                 class="material-symbols-outlined text-7xl text-primary mb-2">
                 emoji_events
             </span>
 
-            <h2 id="modal-title"
+            <h2
+                id="modal-title"
                 class="font-headline-lg text-headline-lg text-primary uppercase mb-2">
                 MATCH RESULT
             </h2>
 
-            <p id="modal-subtitle"
+            <p
+                id="modal-subtitle"
                 class="font-body-md text-on-surface-variant/90 mb-6">
                 You won the match by 12 runs!
             </p>
-
 
             <div
                 class="w-full glass-panel p-4 rounded-xl flex justify-around mb-6 border-white/10">
@@ -773,18 +791,17 @@
                         YOU
                     </p>
 
-                    <p id="modal-player-score"
+                    <p
+                        id="modal-player-score"
                         class="text-2xl font-bold text-primary">
                         0
                     </p>
 
                 </div>
 
-
                 <div class="text-2xl font-bold text-white/30">
                     VS
                 </div>
-
 
                 <div>
 
@@ -792,7 +809,8 @@
                         CPU
                     </p>
 
-                    <p id="modal-cpu-score"
+                    <p
+                        id="modal-cpu-score"
                         class="text-2xl font-bold text-secondary">
                         0
                     </p>
@@ -801,21 +819,20 @@
 
             </div>
 
-
-            <button id="modal-btn"
+            <button
+                id="modal-btn"
                 onclick="handleModalAction()"
                 class="w-full bg-primary-container text-on-primary-container font-label-lg py-4 rounded-xl uppercase tracking-widest shadow-lg hover:scale-105 transition-transform active:scale-95 font-bold">
-
                 Continue
-
             </button>
 
         </div>
 
     </div>
 
-
-    <!-- ================= BOTTOM NAV ================= -->
+    <!-- ==============================
+         BOTTOM NAVIGATION
+         ============================== -->
 
     <nav
         class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-4 py-3 bg-white/5 dark:bg-surface-container-lowest/30 backdrop-blur-xl border-t border-white/10 shadow-2xl">
@@ -834,7 +851,6 @@
 
         </a>
 
-
         <a
             class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors"
             href="#">
@@ -849,7 +865,6 @@
 
         </a>
 
-
         <a
             class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors"
             href="#">
@@ -863,7 +878,6 @@
             </span>
 
         </a>
-
 
         <a
             class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors"
@@ -881,19 +895,18 @@
 
     </nav>
 
-
-    <!-- ================= GAME JAVASCRIPT ================= -->
+    <!-- ==============================
+         JAVASCRIPT
+         ============================== -->
 
     <script>
 
-        // ============================================
-        // LOAD GAME STATE
-        // ============================================
+        /* ==========================================
+           GAME STATE
+           ========================================== */
 
-        let loadedState = JSON.parse(
-            localStorage.getItem("gameState")
-        ) || {};
-
+        let loadedState =
+            JSON.parse(localStorage.getItem("gameState")) || {};
 
         let gameState = {
 
@@ -939,13 +952,12 @@
                 loadedState.gameOver || false
         };
 
-
         let isProcessingTurn = false;
 
 
-        // ============================================
-        // DOM ELEMENTS
-        // ============================================
+        /* ==========================================
+           DOM ELEMENTS
+           ========================================== */
 
         const playerScoreEl =
             document.getElementById("player-score");
@@ -988,7 +1000,6 @@
         const lastBallValEl =
             document.getElementById("last-ball-val");
 
-
         const playerRoleIcon =
             document.getElementById("player-role-icon");
 
@@ -1002,7 +1013,6 @@
         const cpuCardContent =
             document.getElementById("cpu-card-content");
 
-
         const playerCard =
             document.getElementById("player-card");
 
@@ -1010,7 +1020,9 @@
             document.getElementById("cpu-card");
 
 
-        // Modal
+        /* ==========================================
+           MODAL ELEMENTS
+           ========================================== */
 
         const gameModal =
             document.getElementById("game-modal");
@@ -1034,9 +1046,9 @@
             document.getElementById("modal-btn");
 
 
-        // ============================================
-        // FORMAT OVERS
-        // ============================================
+        /* ==========================================
+           FORMAT OVERS
+           ========================================== */
 
         function formatOvers(balls) {
 
@@ -1050,9 +1062,9 @@
         }
 
 
-        // ============================================
-        // UPDATE UI
-        // ============================================
+        /* ==========================================
+           UPDATE UI
+           ========================================== */
 
         function updateUI() {
 
@@ -1076,13 +1088,13 @@
                 `(${formatOvers(gameState.cpuBalls)})`;
 
 
-            // Strike Rate
+            /* Strike Rate */
 
             const playerSR =
                 gameState.playerBalls > 0
                     ? (
-                        gameState.playerScore /
-                        gameState.playerBalls *
+                        (gameState.playerScore /
+                            gameState.playerBalls) *
                         100
                     ).toFixed(1)
                     : "0.0";
@@ -1091,8 +1103,8 @@
             const cpuSR =
                 gameState.cpuBalls > 0
                     ? (
-                        gameState.cpuScore /
-                        gameState.cpuBalls *
+                        (gameState.cpuScore /
+                            gameState.cpuBalls) *
                         100
                     ).toFixed(1)
                     : "0.0";
@@ -1105,7 +1117,7 @@
                 cpuSR;
 
 
-            // Batting / Bowling
+            /* Batting / Bowling */
 
             if (gameState.playerBatting) {
 
@@ -1113,7 +1125,7 @@
                     "YOU ARE BATTING";
 
                 statusBannerEl.className =
-                    "mb-4 glass-panel px-6 py-2 rounded-full border-primary/50 text-primary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg";
+                    "mb-6 glass-panel px-6 py-2 rounded-full border-primary/50 text-primary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg";
 
                 playerRoleIcon.textContent =
                     "sports_cricket";
@@ -1127,7 +1139,7 @@
                     "YOU ARE BOWLING";
 
                 statusBannerEl.className =
-                    "mb-4 glass-panel px-6 py-2 rounded-full border-secondary/50 text-secondary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg";
+                    "mb-6 glass-panel px-6 py-2 rounded-full border-secondary/50 text-secondary font-label-lg text-label-lg uppercase tracking-widest text-center shadow-lg";
 
                 playerRoleIcon.textContent =
                     "sports_baseball";
@@ -1137,7 +1149,7 @@
             }
 
 
-            // Innings
+            /* Innings */
 
             if (gameState.innings === 1) {
 
@@ -1184,9 +1196,9 @@
         }
 
 
-        // ============================================
-        // PLAY TURN
-        // ============================================
+        /* ==========================================
+           PLAY TURN
+           ========================================== */
 
         function playTurn(playerChoice) {
 
@@ -1196,7 +1208,6 @@
             ) {
                 return;
             }
-
 
             isProcessingTurn = true;
 
@@ -1212,28 +1223,46 @@
                 cpuChoice;
 
 
-            // Player card
+            /* Player Card */
 
             playerCardContent.innerHTML = `
-                <span class="font-display-xl text-display-xl text-primary font-extrabold animate-bounce">
+
+                <span
+                    class="font-display-xl text-display-xl text-primary font-extrabold animate-bounce">
+
                     ${playerChoice}
+
                 </span>
 
-                <p class="mt-1 font-label-lg text-label-lg text-on-surface uppercase tracking-widest">
-                    ${gameState.playerBatting ? "BAT" : "BOWL"}
+                <p
+                    class="mt-1 font-label-lg text-label-lg text-on-surface uppercase tracking-widest">
+
+                    ${gameState.playerBatting
+                        ? "BAT"
+                        : "BOWL"}
+
                 </p>
             `;
 
 
-            // CPU card
+            /* CPU Card */
 
             cpuCardContent.innerHTML = `
-                <span class="font-display-xl text-display-xl text-secondary font-extrabold animate-bounce">
+
+                <span
+                    class="font-display-xl text-display-xl text-secondary font-extrabold animate-bounce">
+
                     ${cpuChoice}
+
                 </span>
 
-                <p class="mt-1 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest">
-                    ${gameState.playerBatting ? "BOWL" : "BAT"}
+                <p
+                    class="mt-1 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest">
+
+                    ${gameState.playerBatting
+                        ? "BOWL"
+                        : "BAT"}
+
                 </p>
             `;
 
@@ -1244,21 +1273,21 @@
 
             setTimeout(() => {
 
-                // Ball faced by active batsman
+                /* Active batter faces ball */
 
                 if (gameState.playerBatting) {
 
-                    gameState.playerBalls++;
+                    gameState.playerBalls += 1;
 
                 } else {
 
-                    gameState.cpuBalls++;
+                    gameState.cpuBalls += 1;
                 }
 
 
-                // ========================================
-                // OUT
-                // ========================================
+                /* ==================================
+                   OUT
+                   ================================== */
 
                 if (isOut) {
 
@@ -1291,7 +1320,7 @@
                     }
 
 
-                    // First innings finished
+                    /* First innings finished */
 
                     if (gameState.innings === 1) {
 
@@ -1313,6 +1342,7 @@
 
 
                         saveState();
+
                         updateUI();
 
 
@@ -1322,12 +1352,12 @@
 
                     } else {
 
-                        // Second innings finished
+                        /* Second innings finished */
 
-                        gameState.gameOver =
-                            true;
+                        gameState.gameOver = true;
 
                         saveState();
+
                         updateUI();
 
                         checkMatchWinner();
@@ -1336,9 +1366,9 @@
 
                 } else {
 
-                    // ========================================
-                    // RUNS
-                    // ========================================
+                    /* ==================================
+                       RUNS
+                       ================================== */
 
                     if (gameState.playerBatting) {
 
@@ -1367,10 +1397,11 @@
 
 
                     saveState();
+
                     updateUI();
 
 
-                    // Target reached
+                    /* Target reached */
 
                     if (gameState.innings === 2) {
 
@@ -1389,6 +1420,7 @@
                                 true;
 
                             saveState();
+
                             updateUI();
 
                             checkMatchWinner();
@@ -1405,32 +1437,46 @@
         }
 
 
-        // ============================================
-        // RESET CARDS
-        // ============================================
+        /* ==========================================
+           RESET CARDS
+           ========================================== */
 
         function resetCardsDelay() {
 
             setTimeout(() => {
 
                 playerCardContent.innerHTML = `
-                    <span class="material-symbols-outlined text-5xl md:text-7xl text-primary drop-shadow-lg">
+
+                    <span
+                        class="material-symbols-outlined text-5xl md:text-7xl text-primary drop-shadow-lg">
+
                         touch_app
+
                     </span>
 
-                    <p class="mt-2 font-label-lg text-label-lg text-on-surface uppercase tracking-widest">
+                    <p
+                        class="mt-2 font-label-lg text-label-lg text-on-surface uppercase tracking-widest">
+
                         READY
+
                     </p>
                 `;
 
 
                 cpuCardContent.innerHTML = `
-                    <span class="material-symbols-outlined text-5xl md:text-7xl text-secondary pulse-thinking">
+
+                    <span
+                        class="material-symbols-outlined text-5xl md:text-7xl text-secondary pulse-thinking">
+
                         memory
+
                     </span>
 
-                    <p class="mt-2 font-label-lg text-label-lg text-on-surface-variant/80 uppercase tracking-widest pulse-thinking">
+                    <p
+                        class="mt-2 font-label-lg text-label-lg text-on-surface-variant/80 uppercase tracking-widest pulse-thinking">
+
                         WAITING...
+
                     </p>
                 `;
 
@@ -1441,9 +1487,9 @@
         }
 
 
-        // ============================================
-        // CHECK WINNER
-        // ============================================
+        /* ==========================================
+           MATCH WINNER
+           ========================================== */
 
         function checkMatchWinner() {
 
@@ -1484,6 +1530,8 @@
             saveState();
 
 
+            /* TIE */
+
             if (gameState.result === "TIE") {
 
                 modalIcon.textContent =
@@ -1522,9 +1570,9 @@
         }
 
 
-        // ============================================
-        // RESET GAME
-        // ============================================
+        /* ==========================================
+           RESET GAME
+           ========================================== */
 
         function resetGame() {
 
@@ -1537,9 +1585,9 @@
         }
 
 
-        // ============================================
-        // SAVE STATE
-        // ============================================
+        /* ==========================================
+           SAVE GAME
+           ========================================== */
 
         function saveState() {
 
@@ -1550,9 +1598,9 @@
         }
 
 
-        // ============================================
-        // PARTICLES
-        // ============================================
+        /* ==========================================
+           PARTICLES
+           ========================================== */
 
         function createParticles() {
 
@@ -1560,7 +1608,6 @@
                 document.getElementById(
                     "particles"
                 );
-
 
             const particleCount = 25;
 
@@ -1572,9 +1619,7 @@
             ) {
 
                 const particle =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
 
                 particle.className =
@@ -1614,9 +1659,9 @@
         }
 
 
-        // ============================================
-        // INITIALIZE
-        // ============================================
+        /* ==========================================
+           INITIALIZE
+           ========================================== */
 
         createParticles();
 
